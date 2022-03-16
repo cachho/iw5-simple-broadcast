@@ -1,8 +1,10 @@
 init() {
     level thread broadcast();
+    thread endofroundbroadcast();
     setbroadcastername();
     level.broadcast_messages = ["^1Alpha","^2Beta","^3Gamma","^4Delta","^5Epsilon"];
     level.broadcast_mode = "sequential"; // "random" or "sequential"
+    level.broadcast_message_endofround = "^2Thanks for playing! Join our discord: link";
     
     /* 
     * Color cheat-sheet
@@ -16,7 +18,6 @@ init() {
     * ^7 = White
     * ^8 = Black
     */
-
 }
 
 // you can delete this block and line 3 if you want to set set sv_sayName in server.cfg (default line 80).
@@ -42,4 +43,12 @@ broadcast() {
 
         cmdexec("say "+ level.broadcast_messages[message_index]);
     }
+}
+
+
+// This is a special message that is broadcasted when the round is over.
+endofroundbroadcast() {
+	level waittill("game_ended");
+	wait 0.05;
+    cmdexec("say "+level.broadcast_message_endofround);
 }
