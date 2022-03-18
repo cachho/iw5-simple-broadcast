@@ -3,22 +3,26 @@ init() {
     thread endofroundbroadcast();
     setbroadcastername();
     level.broadcast_messages = ["^1You're playing on a RawMeat MW3 Server",
+    "^1Welcome to RawMeat MW3",
+    "^2Raw Meat Old School MW3",
     "^2This is a vanilla server. Our goal: take you back to 2011.",
+    "^5Check out the other Mw3 Servers: TDM, Domination & FFA",
     "^2Vanilla MW3 means no rebalancing, no new gamemodes, no HUD overlays.",
     "^2MW3 as you know it",
     "^2MW3 like you never left",
-    "^5Get recognized with special roles for your ingame achivements on our !discord",
+    "^5Get recognized with special roles for your ingame achievements on our !discord",
     "^5Got a M.O.A.B.? Send in some proof on our !discord and get the exclusive @nuker role!",
     "^5We want to hear your feedback. Please let us know what you think on our !discord",
+    "^5We're trying to build an MW3 enthusiast community. Join us on discord (dsc.gg/rawmeat)!",
     "^8We think: Not every server needs to be 18 players",
     "^2Throwback to 2011",
     "^5Got any ideas for modes and rules? We can host it!",
     "^5Participate in polls in our !discord to help shape the server",
     "^5Join our !discord so we can organize lobbies if player numbers are low",
     "^5This server was launched in March 2022",
-    "^5This server is just a couple weeks old. Join the !discord now to get the @og role",
-    "^5With map vote you can choose the next map",
-    "^5Map vote with two maps because that's how the original was",
+    "^5Everyone who joins the discord in these early days gets the @og role",
+    "^5Stay for the next round, you get to vote which map",
+    "^5Map vote with two maps, because that's what it originally was like",
     "^5All maps are in the voting pool, the players decide...",
     "^5The choice for the next map is yours",
     "^1dsc.gg/rawmeat"];
@@ -55,7 +59,7 @@ broadcast() {
     message_index = -1;
 
     while (true) {
-        wait 180; //interval in seconds
+        wait 200; //interval in seconds
         if (level.broadcast_mode == "random") {
             message_index = randomint(level.broadcast_messages.size);
         } else if (level.broadcast_mode == "sequential") {
